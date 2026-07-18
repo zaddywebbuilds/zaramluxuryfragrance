@@ -3,6 +3,7 @@ import { Share2, MessageCircle } from 'lucide-react'
 import { siteConfig } from '../../config/site'
 import { buildWhatsAppUrl, buildScentConsultWhatsAppMessage } from '../../lib/utils'
 import { PhotoMedallion } from '../decor/PhotoDecor'
+import { asset } from '../../lib/assets'
 
 const footerLinks = {
   Shop: [
@@ -31,7 +32,7 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="relative bg-brown-200 text-cream-200 overflow-hidden">
-      <PhotoMedallion src="/products/midnight-edition-set.jpg" size={72} className="decor--float-slow hidden xl:block" style={{ right: '3%', top: 60, boxShadow: '0 0 0 4px rgba(212,172,112,0.15), 0 8px 22px rgba(0,0,0,0.45)', opacity: 0.85 }} />
+      <PhotoMedallion src={asset('/products/midnight-edition-set.jpg')} size={72} className="decor--float-slow hidden xl:block" style={{ right: '3%', top: 60, boxShadow: '0 0 0 4px rgba(212,172,112,0.15), 0 8px 22px rgba(0,0,0,0.45)', opacity: 0.85 }} />
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         {/* Top */}

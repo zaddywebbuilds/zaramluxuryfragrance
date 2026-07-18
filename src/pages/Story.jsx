@@ -4,6 +4,7 @@ import { MessageCircle, Mail, Phone, ChevronDown, ChevronUp, Share2 } from 'luci
 import { useForm } from 'react-hook-form'
 import { siteConfig } from '../config/site'
 import { buildWhatsAppUrl, buildScentConsultWhatsAppMessage, validateNigerianPhone } from '../lib/utils'
+import { asset } from '../lib/assets'
 
 const FAQS = [
   { q: 'Are your perfumes original?', a: 'Yes. Every fragrance in the Zaram collection is carefully sourced and verified. We do not sell imitations, dilutions or copies. What you receive is exactly what you ordered, sealed and genuine.' },
@@ -58,7 +59,7 @@ export default function Story() {
       {/* Hero */}
       <section className="pt-28 pb-20 bg-dark-gradient relative overflow-hidden">
         <div className="absolute inset-0 opacity-15">
-          <img src="/products/zenith.jpg"
+          <img src={asset('/products/zenith.jpg')}
                alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-brown-200/70 to-brown-200/95" />
         </div>
@@ -108,7 +109,7 @@ export default function Story() {
               </div>
             </div>
             <div className="aspect-[4/5] overflow-hidden">
-              <img src="/products/lamsat-harir-lifestyle.jpg"
+              <img src={asset('/products/lamsat-harir-lifestyle.jpg')}
                    alt="Zaram Luxury Fragrance story"
                    className="w-full h-full object-cover" />
             </div>

@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { MOOD_CATEGORIES } from '../../data/products'
 import { PhotoMedallion, PhotoCard } from '../decor/PhotoDecor'
+import { asset } from '../../lib/assets'
 
 export default function MoodCategories() {
   return (
     <section className="relative py-20 bg-cream-100 overflow-hidden">
       {/* Perfume decor — real product shots */}
-      <PhotoCard src="/products/elyssia-scarlet.jpg" width={110} tilt={-7} className="decor--float hidden xl:block" style={{ left: '2.5%', top: 48 }} />
-      <PhotoMedallion src="/products/zenith.jpg" size={90} className="decor--float-slow hidden xl:block" style={{ right: '4%', top: 44 }} />
+      <PhotoCard src={asset('/products/elyssia-scarlet.jpg')} width={110} tilt={-7} className="decor--float hidden xl:block" style={{ left: '2.5%', top: 48 }} />
+      <PhotoMedallion src={asset('/products/zenith.jpg')} size={90} className="decor--float-slow hidden xl:block" style={{ right: '4%', top: 44 }} />
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
@@ -31,7 +32,7 @@ export default function MoodCategories() {
             >
               <img
                 src={cat.image}
-                alt={cat.name}
+                alt={cat.label}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
@@ -41,7 +42,7 @@ export default function MoodCategories() {
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-6">
                 <h3 className="font-display text-xl md:text-2xl text-cream-100 leading-tight mb-1.5">
-                  {cat.name}
+                  {cat.label}
                 </h3>
                 <p className="font-body text-xs text-cream-200/70 mb-4 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {cat.description}

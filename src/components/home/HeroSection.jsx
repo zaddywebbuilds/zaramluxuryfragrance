@@ -3,19 +3,20 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import { useUIStore } from '../../store/useStore'
+import { asset } from '../../lib/assets'
 
 // 10 product images to orbit
 const ORBIT_PRODUCTS = [
-  { src: '/products/oud-al-layl-set.jpg',            name: 'Oud Al Layl' },
-  { src: '/products/elyssia-scarlet.jpg',            name: 'Elyssia Scarlet' },
-  { src: '/products/midnight-edition-set.jpg',       name: 'Midnight Edition' },
-  { src: '/products/zenith.jpg',                     name: 'Zenith' },
-  { src: '/products/raghad.jpg',                     name: 'Raghad' },
-  { src: '/products/lamsat-harir-dubai-chocolate.jpg', name: 'Lamsat Harir' },
-  { src: '/products/love-key.jpg',                   name: 'Love Key' },
-  { src: '/products/thriller.jpg',                   name: 'Thriller' },
-  { src: '/products/her-confession.jpg',             name: 'Her Confession' },
-  { src: '/products/golden-elixir.jpg',              name: 'Golden Elixir' },
+  { src: asset('/products/oud-al-layl-set.jpg'),            name: 'Oud Al Layl' },
+  { src: asset('/products/elyssia-scarlet.jpg'),            name: 'Elyssia Scarlet' },
+  { src: asset('/products/midnight-edition-set.jpg'),       name: 'Midnight Edition' },
+  { src: asset('/products/zenith.jpg'),                     name: 'Zenith' },
+  { src: asset('/products/raghad.jpg'),                     name: 'Raghad' },
+  { src: asset('/products/lamsat-harir-dubai-chocolate.jpg'), name: 'Lamsat Harir' },
+  { src: asset('/products/love-key.jpg'),                   name: 'Love Key' },
+  { src: asset('/products/thriller.jpg'),                   name: 'Thriller' },
+  { src: asset('/products/her-confession.jpg'),             name: 'Her Confession' },
+  { src: asset('/products/golden-elixir.jpg'),              name: 'Golden Elixir' },
 ]
 
 function OrbitRing() {
@@ -49,7 +50,7 @@ function OrbitRing() {
       {/* Video lives OUTSIDE the rotating scene — never moves */}
       <div className="orbit-center">
         <video autoPlay muted loop playsInline className="orbit-video">
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src={asset('/hero-video.mp4')} type="video/mp4" />
         </video>
         <div className="orbit-center-overlay" />
       </div>

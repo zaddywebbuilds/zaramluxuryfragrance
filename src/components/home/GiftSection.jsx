@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Gift, Heart, Sparkles, Building2 } from 'lucide-react'
 import { PhotoMedallion } from '../decor/PhotoDecor'
+import { asset } from '../../lib/assets'
 
 const OCCASIONS = [
   { icon: Heart, label: 'Birthday Gifts', desc: 'Make their day unforgettable.' },
@@ -16,13 +17,13 @@ export default function GiftSection() {
       {/* Soft background image */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <img
-          src="/products/oud-al-layl-set.jpg"
+          src={asset('/products/oud-al-layl-set.jpg')}
           alt=""
           className="w-full h-full object-cover"
         />
       </div>
 
-      <PhotoMedallion src="/products/her-confession.jpg" size={84} className="decor--float hidden xl:block" style={{ left: '1.5%', bottom: 60 }} />
+      <PhotoMedallion src={asset('/products/her-confession.jpg')} size={84} className="decor--float hidden xl:block" style={{ left: '1.5%', bottom: 60 }} />
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
@@ -76,21 +77,21 @@ export default function GiftSection() {
           >
             <div className="space-y-3">
               <div className="aspect-[3/4] overflow-hidden">
-                <img src="/products/lamsat-harir-dubai-chocolate-set.jpg"
+                <img src={asset('/products/lamsat-harir-dubai-chocolate-set.jpg')}
                      alt="Gift packaging" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="aspect-square overflow-hidden">
-                <img src="/products/al-faris-spray-set.jpg"
+                <img src={asset('/products/al-faris-spray-set.jpg')}
                      alt="Fragrance gift" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
             <div className="space-y-3 mt-8">
               <div className="aspect-square overflow-hidden">
-                <img src="/products/elyssia-scarlet.jpg"
+                <img src={asset('/products/elyssia-scarlet.jpg')}
                      alt="Premium perfume" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="aspect-[3/4] overflow-hidden">
-                <img src="/products/oud-al-layl-set.jpg"
+                <img src={asset('/products/oud-al-layl-set.jpg')}
                      alt="Luxury packaging" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>

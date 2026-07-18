@@ -3,6 +3,7 @@ import { PRODUCTS } from '../../data/products'
 import ProductCard from '../product/ProductCard'
 import { useStaggerReveal } from '../../hooks/useScrollAnimation'
 import { PhotoCard } from '../decor/PhotoDecor'
+import { asset } from '../../lib/assets'
 
 const bestsellers = PRODUCTS.filter((p) => p.is_bestseller).slice(0, 4)
 
@@ -11,7 +12,7 @@ export default function BestsellerGrid() {
 
   return (
     <section className="relative py-20 bg-cream-200/40 overflow-hidden">
-      <PhotoCard src="/products/love-key.jpg" width={100} tilt={5} className="decor--float-slow hidden 2xl:block" style={{ right: '1.5%', top: 26 }} />
+      <PhotoCard src={asset('/products/love-key.jpg')} width={100} tilt={5} className="decor--float-slow hidden 2xl:block" style={{ right: '1.5%', top: 26 }} />
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">

@@ -4,6 +4,7 @@ import { Mail, MessageCircle, CheckCircle, Loader } from 'lucide-react'
 import { siteConfig } from '../../config/site'
 import { buildWhatsAppUrl } from '../../lib/utils'
 import { PhotoMedallion } from '../decor/PhotoDecor'
+import { asset } from '../../lib/assets'
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('')
@@ -32,9 +33,9 @@ export default function NewsletterSection() {
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-blush-200/10 rounded-full blur-2xl pointer-events-none" />
 
       {/* Perfume decor — real product shots */}
-      <PhotoMedallion src="/products/oud-al-layl-set.jpg" size={96} className="decor--float hidden xl:block" style={{ left: '6%', top: '28%', boxShadow: '0 0 0 5px rgba(212,172,112,0.18), 0 10px 28px rgba(0,0,0,0.4)' }} />
-      <PhotoMedallion src="/products/golden-elixir.jpg" size={78} className="decor--float-slow hidden xl:block" style={{ right: '7%', top: '24%', boxShadow: '0 0 0 5px rgba(212,172,112,0.18), 0 10px 28px rgba(0,0,0,0.4)' }} />
-      <PhotoMedallion src="/products/lamsat-harir-dubai-chocolate.jpg" size={58} className="decor--drift hidden xl:block" style={{ right: '13%', bottom: '14%', boxShadow: '0 0 0 4px rgba(212,172,112,0.15), 0 8px 20px rgba(0,0,0,0.35)' }} />
+      <PhotoMedallion src={asset('/products/oud-al-layl-set.jpg')} size={96} className="decor--float hidden xl:block" style={{ left: '6%', top: '28%', boxShadow: '0 0 0 5px rgba(212,172,112,0.18), 0 10px 28px rgba(0,0,0,0.4)' }} />
+      <PhotoMedallion src={asset('/products/golden-elixir.jpg')} size={78} className="decor--float-slow hidden xl:block" style={{ right: '7%', top: '24%', boxShadow: '0 0 0 5px rgba(212,172,112,0.18), 0 10px 28px rgba(0,0,0,0.4)' }} />
+      <PhotoMedallion src={asset('/products/lamsat-harir-dubai-chocolate.jpg')} size={58} className="decor--drift hidden xl:block" style={{ right: '13%', bottom: '14%', boxShadow: '0 0 0 4px rgba(212,172,112,0.15), 0 8px 20px rgba(0,0,0,0.35)' }} />
 
       <div className="relative max-w-2xl mx-auto px-4 md:px-8 text-center">
         <motion.div

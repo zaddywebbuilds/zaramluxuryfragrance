@@ -1,5 +1,5 @@
 import HeroSection from '../components/home/HeroSection'
-import ScrollStory3D from '../components/home/ScrollStory3D'
+import HeroShowcase from '../components/home/HeroShowcase'
 import TrustStrip from '../components/home/TrustStrip'
 import MoodCategories from '../components/home/MoodCategories'
 import BestsellerGrid from '../components/home/BestsellerGrid'
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <ScrollStory3D />
+      <HeroShowcase />
       <TrustStrip />
       <MoodCategories />
       <BestsellerGrid />

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ShieldCheck, Award, Gift, Users } from 'lucide-react'
 import { PhotoMedallion, PhotoCard } from '../decor/PhotoDecor'
+import { asset } from '../../lib/assets'
 
 const BENEFITS = [
   {
@@ -28,8 +29,8 @@ const BENEFITS = [
 export default function WhyShopWithUs() {
   return (
     <section className="relative py-20 bg-cream-100 overflow-hidden">
-      <PhotoMedallion src="/products/raghad.jpg" size={92} className="decor--float hidden xl:block" style={{ left: '2.5%', top: 44 }} />
-      <PhotoCard src="/products/thriller.jpg" width={104} tilt={6} className="decor--float-slow hidden xl:block" style={{ right: '2.5%', top: 40 }} />
+      <PhotoMedallion src={asset('/products/raghad.jpg')} size={92} className="decor--float hidden xl:block" style={{ left: '2.5%', top: 44 }} />
+      <PhotoCard src={asset('/products/thriller.jpg')} width={104} tilt={6} className="decor--float-slow hidden xl:block" style={{ right: '2.5%', top: 40 }} />
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-14">

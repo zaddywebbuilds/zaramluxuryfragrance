@@ -4,6 +4,7 @@ import { Star, ChevronLeft, ChevronRight, BadgeCheck } from 'lucide-react'
 import { DEMO_TESTIMONIALS } from '../../data/products'
 import { useFadeUp } from '../../hooks/useScrollAnimation'
 import { PhotoCameo, PhotoMedallion } from '../decor/PhotoDecor'
+import { asset } from '../../lib/assets'
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0)
@@ -17,8 +18,8 @@ export default function Testimonials() {
 
   return (
     <section className="relative py-20 bg-cream-200/50 overflow-hidden">
-      <PhotoCameo src="/products/lamsat-harir-lifestyle.jpg" size={260} fade="#F7F0E5" className="hidden xl:block" style={{ left: '-1%', bottom: -20, opacity: 0.75 }} />
-      <PhotoMedallion src="/products/elyssia-scarlet.jpg" size={80} className="decor--float hidden xl:block" style={{ right: '5%', top: 70 }} />
+      <PhotoCameo src={asset('/products/lamsat-harir-lifestyle.jpg')} size={260} fade="#F7F0E5" className="hidden xl:block" style={{ left: '-1%', bottom: -20, opacity: 0.75 }} />
+      <PhotoMedallion src={asset('/products/elyssia-scarlet.jpg')} size={80} className="decor--float hidden xl:block" style={{ right: '5%', top: 70 }} />
 
       <div className="relative max-w-4xl mx-auto px-4 md:px-8">
         <div ref={headRef} className="text-center mb-12">
