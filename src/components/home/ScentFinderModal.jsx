@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, ChevronRight, ChevronLeft, Sparkles } from 'lucide-react'
 import { useUIStore } from '../../store/useStore'
-import { DEMO_PRODUCTS } from '../../data/products'
+import { PRODUCTS } from '../../data/products'
 import ProductCard from '../product/ProductCard'
 
 const STEPS = [
@@ -60,7 +60,7 @@ const STEPS = [
 ]
 
 function matchProducts(answers) {
-  return DEMO_PRODUCTS.filter((p) => {
+  return PRODUCTS.filter((p) => {
     // Gender
     if (answers.who && answers.who !== 'gift') {
       if (answers.who === 'feminine' && p.gender === 'masculine') return false

@@ -3,8 +3,9 @@ import { motion } from 'framer-motion'
 import { useSearchParams } from 'react-router-dom'
 import { SlidersHorizontal, X, ChevronDown } from 'lucide-react'
 import ProductCard from '../components/product/ProductCard'
-import { DEMO_PRODUCTS } from '../data/products'
+import { PRODUCTS } from '../data/products'
 import { siteConfig } from '../config/site'
+import { useStaggerReveal } from '../hooks/useScrollAnimation'
 
 const GENDER_FILTERS = ['All', 'Feminine', 'Masculine', 'Unisex']
 const SCENT_FAMILIES = ['All', 'Oud & Spice', 'Oud & Oriental', 'Floral & Warm', 'Floral & Dark', 'Clean & Musky', 'Fresh & Aquatic', 'Gourmand & Sweet', 'Oriental & Amber']
@@ -29,20 +30,20 @@ export default function Shop() {
   const [showGifts, setShowGifts] = useState(searchParams.get('filter') === 'gifts')
 
   const filtered = useMemo(() => {
-    let products = [...DEMO_PRODUCTS]
+    let products = [...PRODUCTS]
 
     if (gender !== 'All') products = products.filter((p) => p.gender === gender.toLowerCase())
-    if (scentFamily !== 'All') products = products.filter((p) => p.scentFamily === scentFamily)
+    if (scentFamily !== 'All') products = products.filter((p) => p.scent_family === scentFamily)
     if (priceRange) {
       const r = siteConfig.priceRanges.find((r) => r.label === priceRange)
       if (r) products = products.filter((p) => p.price >= r.min && p.price <= r.max)
     }
-    if (showNew) products = products.filter((p) => p.isNewArrival)
-    if (showBestsellers) products = products.filter((p) => p.isBestseller)
-    if (showGifts) products = products.filter((p) => p.giftAvailable)
+    if (showNew) products = products.filter((p) => p.is_new_arrival)
+    if (showBestsellers) products = products.filter((p) => p.is_bestseller)
+    if (showGifts) products = products.filter((p) => p.gift_available)
 
     switch (sort) {
-      case 'bestsellers': return [...products].sort((a, b) => (b.isBestseller ? 1 : 0) - (a.isBestseller ? 1 : 0))
+      case 'bestsellers': return [...products].sort((a, b) => (b.is_bestseller ? 1 : 0) - (a.is_bestseller ? 1 : 0))
       case 'price-asc': return [...products].sort((a, b) => a.price - b.price)
       case 'price-desc': return [...products].sort((a, b) => b.price - a.price)
       case 'rating': return [...products].sort((a, b) => b.rating - a.rating)

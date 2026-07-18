@@ -37,9 +37,9 @@ export default function ProductCard({ product, className = '' }) {
     >
       {/* Badges */}
       <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
-        {product.isBestseller && <span className="badge-bestseller">Bestseller</span>}
-        {product.isNewArrival && <span className="badge-new">New</span>}
-        {product.salePrice && <span className="badge-sale">Sale</span>}
+        {product.is_bestseller && <span className="badge-bestseller">Bestseller</span>}
+        {product.is_new_arrival && <span className="badge-new">New</span>}
+        {product.sale_price && <span className="badge-sale">Sale</span>}
       </div>
 
       {/* Wishlist */}
@@ -82,7 +82,7 @@ export default function ProductCard({ product, className = '' }) {
       {/* Info */}
       <div className="p-4">
         <p className="font-body text-[10px] tracking-widest uppercase text-champagne-500 mb-1">
-          {product.scentFamily}
+          {product.scent_family}
         </p>
         <Link to={`/product/${product.slug}`}>
           <h3 className="font-display text-lg text-brown-100 leading-snug hover:text-champagne-500 transition-colors">
@@ -90,7 +90,7 @@ export default function ProductCard({ product, className = '' }) {
           </h3>
         </Link>
         <p className="font-body text-xs text-brown-50 mt-0.5 line-clamp-1">
-          {product.tagline}
+          {product.brand}
         </p>
 
         {/* Rating */}
@@ -101,7 +101,7 @@ export default function ProductCard({ product, className = '' }) {
                 className={s <= Math.round(product.rating) ? 'fill-champagne-400 text-champagne-400' : 'text-cream-300'} />
             ))}
           </div>
-          <span className="font-body text-[10px] text-brown-50">({product.reviewCount})</span>
+          <span className="font-body text-[10px] text-brown-50">({product.review_count})</span>
         </div>
 
         {/* Size selector */}
@@ -124,10 +124,10 @@ export default function ProductCard({ product, className = '' }) {
         {/* Price + Add */}
         <div className="flex items-center justify-between mt-3">
           <div>
-            {product.salePrice ? (
+            {product.sale_price ? (
               <div className="flex items-baseline gap-2">
                 <span className="font-body font-semibold text-base text-brown-100">
-                  {formatPrice(product.salePrice)}
+                  {formatPrice(product.sale_price)}
                 </span>
                 <span className="font-body text-xs text-brown-50 line-through">
                   {formatPrice(selectedSize.price)}

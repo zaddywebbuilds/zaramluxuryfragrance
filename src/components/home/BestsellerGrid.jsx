@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { DEMO_PRODUCTS } from '../../data/products'
+import { PRODUCTS } from '../../data/products'
 import ProductCard from '../product/ProductCard'
+import { useStaggerReveal } from '../../hooks/useScrollAnimation'
 
-const bestsellers = DEMO_PRODUCTS.filter((p) => p.isBestseller).slice(0, 4)
+const bestsellers = PRODUCTS.filter((p) => p.is_bestseller).slice(0, 4)
 
 export default function BestsellerGrid() {
+  const gridRef = useStaggerReveal('[data-item]', { stagger: 0.1, y: 30 })
+
   return (
     <section className="py-20 bg-cream-200/40">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -21,17 +23,11 @@ export default function BestsellerGrid() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {bestsellers.map((product, i) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-            >
+        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {bestsellers.map((product) => (
+            <div key={product.id} data-item>
               <ProductCard product={product} />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

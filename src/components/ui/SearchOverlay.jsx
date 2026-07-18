@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Search, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useUIStore } from '../../store/useStore'
-import { DEMO_PRODUCTS } from '../../data/products'
+import { PRODUCTS } from '../../data/products'
 import { formatPrice } from '../../lib/utils'
 
 export default function SearchOverlay() {
@@ -12,11 +12,11 @@ export default function SearchOverlay() {
   const inputRef = useRef(null)
 
   const results = query.length > 1
-    ? DEMO_PRODUCTS.filter((p) =>
+    ? PRODUCTS.filter((p) =>
         p.name.toLowerCase().includes(query.toLowerCase()) ||
-        p.scentFamily.toLowerCase().includes(query.toLowerCase()) ||
+        p.scent_family.toLowerCase().includes(query.toLowerCase()) ||
         p.occasions.some((o) => o.toLowerCase().includes(query.toLowerCase())) ||
-        p.topNotes.some((n) => n.toLowerCase().includes(query.toLowerCase()))
+        p.top_notes.some((n) => n.toLowerCase().includes(query.toLowerCase()))
       ).slice(0, 5)
     : []
 
@@ -76,7 +76,7 @@ export default function SearchOverlay() {
                         <img src={p.images[0]} alt={p.name} className="w-12 h-12 object-cover" />
                         <div className="flex-1 min-w-0">
                           <p className="font-body font-medium text-brown-100 truncate">{p.name}</p>
-                          <p className="font-body text-xs text-brown-50">{p.scentFamily}</p>
+                          <p className="font-body text-xs text-brown-50">{p.scent_family}</p>
                         </div>
                         <span className="font-body font-medium text-champagne-500 shrink-0">
                           {formatPrice(p.price)}

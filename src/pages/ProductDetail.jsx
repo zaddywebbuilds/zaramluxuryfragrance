@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Heart, ShoppingBag, MessageCircle, Share2, ChevronDown, Star, Package, ArrowLeft } from 'lucide-react'
-import { DEMO_PRODUCTS, NIGERIAN_STATES } from '../data/products'
+import { PRODUCTS, NIGERIAN_STATES } from '../data/products'
 import { useCartStore, useWishlistStore, useRecentlyViewedStore } from '../store/useStore'
 import { formatPrice, buildWhatsAppUrl, buildProductWhatsAppMessage } from '../lib/utils'
 import { siteConfig } from '../config/site'
@@ -35,7 +35,7 @@ function PersonalityBar({ label, value, keys }) {
 export default function ProductDetail() {
   const { slug } = useParams()
   const navigate = useNavigate()
-  const product = DEMO_PRODUCTS.find((p) => p.slug === slug)
+  const product = PRODUCTS.find((p) => p.slug === slug)
 
   const [selectedSize, setSelectedSize] = useState(null)
   const [quantity, setQuantity] = useState(1)
@@ -87,8 +87,8 @@ export default function ProductDetail() {
     buildProductWhatsAppMessage(product, selectedSize?.ml || product.defaultSize)
   )
 
-  const related = DEMO_PRODUCTS.filter(
-    (p) => p.id !== product.id && (p.scentFamily === product.scentFamily || p.gender === product.gender)
+  const related = PRODUCTS.filter(
+    (p) => p.id !== product.id && (p.scent_family === product.scent_family || p.gender === product.gender)
   ).slice(0, 4)
 
   return (
@@ -136,8 +136,8 @@ export default function ProductDetail() {
           <div>
             {/* Badges */}
             <div className="flex gap-2 mb-4">
-              {product.isBestseller && <span className="badge-bestseller">Bestseller</span>}
-              {product.isNewArrival && <span className="badge-new">New</span>}
+              {product.is_bestseller && <span className="badge-bestseller">Bestseller</span>}
+              {product.is_new_arrival && <span className="badge-new">New</span>}
             </div>
 
             <p className="font-body text-xs tracking-widest uppercase text-champagne-500 mb-2">
@@ -155,7 +155,7 @@ export default function ProductDetail() {
                   <Star key={s} size={13} className={s <= Math.round(product.rating) ? 'fill-champagne-400 text-champagne-400' : 'text-cream-300'} />
                 ))}
               </div>
-              <span className="font-body text-sm text-brown-50">{product.rating} ({product.reviewCount} reviews)</span>
+              <span className="font-body text-sm text-brown-50">{product.rating} ({product.review_count} reviews)</span>
             </div>
 
             {/* Price */}
@@ -270,7 +270,7 @@ export default function ProductDetail() {
               <div className="divider-gold" />
               <p className="font-body text-base text-brown-50 leading-relaxed mt-4 mb-6">{product.description}</p>
               <p className="font-body text-sm text-brown-100 italic border-l-2 border-champagne-400 pl-4">
-                "{product.emotionalDescription}"
+                "{product.emotional_description}"
               </p>
 
               {/* Details */}
@@ -297,9 +297,9 @@ export default function ProductDetail() {
               <div className="divider-gold" />
               <div className="mt-6 space-y-6">
                 {[
-                  { tier: 'Top Notes', notes: product.topNotes, desc: 'The first impression — what you smell in the first 15–30 minutes.' },
-                  { tier: 'Heart Notes', notes: product.heartNotes, desc: 'The soul of the fragrance, emerging after the top notes fade.' },
-                  { tier: 'Base Notes', notes: product.baseNotes, desc: 'The lasting impression — what remains hours later.' },
+                  { tier: 'Top Notes', notes: product.top_notes, desc: 'The first impression — what you smell in the first 15–30 minutes.' },
+                  { tier: 'Heart Notes', notes: product.heart_notes, desc: 'The soul of the fragrance, emerging after the top notes fade.' },
+                  { tier: 'Base Notes', notes: product.base_notes, desc: 'The lasting impression — what remains hours later.' },
                 ].map(({ tier, notes, desc }) => (
                   <div key={tier} className="border border-[rgba(180,132,61,0.12)] p-5">
                     <p className="font-body text-xs tracking-widest uppercase text-champagne-500 mb-2">{tier}</p>

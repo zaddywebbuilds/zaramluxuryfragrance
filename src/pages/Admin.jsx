@@ -3,7 +3,7 @@ import { Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Package, ShoppingCart, Users, Settings, LogOut, BarChart3, AlertCircle } from 'lucide-react'
 import { supabase } from '../lib/supabase'
-import { DEMO_PRODUCTS } from '../data/products'
+import { PRODUCTS } from '../data/products'
 import { formatPrice } from '../lib/utils'
 
 function AdminLogin({ onLogin }) {
@@ -95,7 +95,7 @@ function AdminLayout({ children, user, onLogout }) {
 
 function AdminOverview() {
   const stats = [
-    { label: 'Total Products', value: DEMO_PRODUCTS.length, sub: 'Demo data' },
+    { label: 'Total Products', value: PRODUCTS.length, sub: 'Demo data' },
     { label: 'Pending Orders', value: 0, sub: 'Connect Supabase' },
     { label: 'Total Customers', value: 0, sub: 'Connect Supabase' },
     { label: 'Revenue (Month)', value: '—', sub: 'Connect Supabase' },
@@ -140,7 +140,7 @@ function AdminOverview() {
               </tr>
             </thead>
             <tbody>
-              {DEMO_PRODUCTS.map((p) => (
+              {PRODUCTS.map((p) => (
                 <tr key={p.id} className="border-b border-[rgba(180,132,61,0.05)] hover:bg-cream-200/30 transition-colors">
                   <td className="px-4 py-3 text-brown-100 font-medium">{p.name}</td>
                   <td className="px-4 py-3 text-brown-50">{p.collection}</td>
