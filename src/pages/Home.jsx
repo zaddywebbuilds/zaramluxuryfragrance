@@ -1,5 +1,7 @@
 import HeroSection from '../components/home/HeroSection'
-import HeroShowcase from '../components/home/HeroShowcase'
+import PerfumeHeroStory from '../components/story/PerfumeHeroStory'
+import SplitPanelScene from '../components/story/SplitPanelScene'
+import { asset } from '../lib/assets'
 import TrustStrip from '../components/home/TrustStrip'
 import MoodCategories from '../components/home/MoodCategories'
 import BestsellerGrid from '../components/home/BestsellerGrid'
@@ -19,7 +21,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <HeroShowcase />
+      <PerfumeHeroStory />
       <TrustStrip />
       <MoodCategories />
       <BestsellerGrid />
@@ -33,6 +35,18 @@ export default function Home() {
         products={featured}
         title="The Edit"
         label="Curated For You"
+      />
+      <SplitPanelScene
+        image={asset('/products/elyssia-scarlet.jpg')}
+        imageAlt="Elyssia Scarlet"
+        label="Featured Fragrance"
+        title="Elyssia Scarlet"
+        lines={[
+          'A magnetic evening fragrance built around Turkish rose and dark berries.',
+          'It opens bright, settles into a velvet heart, and stays with you — softly, insistently.',
+          'For the version of you that arrives late and is still the one remembered.',
+        ]}
+        cta={{ to: '/product/elyssia-scarlet', text: 'Discover Elyssia Scarlet' }}
       />
       <ScentFinderSection />
       <WhyShopWithUs />
