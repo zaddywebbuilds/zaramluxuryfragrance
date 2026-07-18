@@ -20,42 +20,35 @@ const ORBIT_PRODUCTS = [
 
 function OrbitRing() {
   const count = ORBIT_PRODUCTS.length
-  // Orbit radii — responsive via CSS custom props
   return (
-    <div className="orbit-scene" aria-hidden="true">
-      {/* Outer glow ring */}
-      <div className="orbit-ring orbit-ring--outer" />
-      <div className="orbit-ring orbit-ring--inner" />
+    // Wrapper stays still — only orbit-scene rotates inside it
+    <div className="orbit-wrapper" aria-hidden="true">
+      <div className="orbit-scene">
+        <div className="orbit-ring orbit-ring--outer" />
+        <div className="orbit-ring orbit-ring--inner" />
 
-      {/* Orbiting items */}
-      {ORBIT_PRODUCTS.map((p, i) => {
-        const angle = (360 / count) * i
-        // Each item starts at its angle offset, then the whole ring spins via CSS
-        return (
-          <div
-            key={p.src}
-            className="orbit-item"
-            style={{ '--start-angle': `${angle}deg` }}
-          >
-            <div className="orbit-card">
-              <div className="orbit-img-wrap">
-                <img src={p.src} alt={p.name} loading="eager" />
+        {ORBIT_PRODUCTS.map((p, i) => {
+          const angle = (360 / count) * i
+          return (
+            <div
+              key={p.src}
+              className="orbit-item"
+              style={{ '--start-angle': `${angle}deg` }}
+            >
+              <div className="orbit-card">
+                <div className="orbit-img-wrap">
+                  <img src={p.src} alt={p.name} loading="eager" />
+                </div>
+                <span className="orbit-label">{p.name}</span>
               </div>
-              <span className="orbit-label">{p.name}</span>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
 
-      {/* Centre video */}
+      {/* Video lives OUTSIDE the rotating scene — never moves */}
       <div className="orbit-center">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="orbit-video"
-        >
+        <video autoPlay muted loop playsInline className="orbit-video">
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="orbit-center-overlay" />

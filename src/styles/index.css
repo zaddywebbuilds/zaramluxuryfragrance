@@ -187,26 +187,22 @@
 }
 
 /* ── Orbit ─────────────────────────────────────────────── */
-.orbit-scene {
+/* Wrapper: static, everything positions relative to this */
+.orbit-wrapper {
   position: relative;
   width: 440px;
   height: 440px;
   flex-shrink: 0;
+}
+
+/* Only the scene rotates — center video lives outside it */
+.orbit-scene {
+  position: absolute;
+  inset: 0;
   animation: orbit-spin 24s linear infinite;
 }
 
-@media (max-width: 1024px) {
-  .orbit-scene {
-    width: 320px;
-    height: 320px;
-  }
-}
-@media (max-width: 640px) {
-  .orbit-scene {
-    width: 280px;
-    height: 280px;
-  }
-}
+/* responsive handled on wrapper only */
 
 @keyframes orbit-spin {
   from { transform: rotate(0deg); }
@@ -325,7 +321,7 @@
   to   { transform: rotate(360deg); }
 }
 
-/* Centre circle — holds the video, counter-rotates to stay upright */
+/* Centre circle — positioned on wrapper (outside orbit-scene), never rotates */
 .orbit-center {
   position: absolute;
   top: 50%;
@@ -340,7 +336,6 @@
     0 0 0 6px rgba(8, 6, 14, 0.85),
     0 0 40px rgba(180, 132, 61, 0.22),
     0 0 80px rgba(180, 132, 61, 0.10);
-  animation: orbit-counter 24s linear infinite;
   z-index: 2;
 }
 @media (max-width: 1024px) {
@@ -360,6 +355,115 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(circle, transparent 55%, rgba(8, 6, 14, 0.25) 100%);
+  pointer-events: none;
+}
+
+/* ── Scroll Story 3D ──────────────────────────────────── */
+.story-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #07050d;
+}
+
+/* All three text blocks sit at the same center position */
+.story-texts {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  pointer-events: none;
+  padding: 0 6vw 12vh;
+  z-index: 10;
+}
+
+.story-text {
+  position: absolute;
+  bottom: 12vh;
+  left: 6vw;
+  max-width: 560px;
+}
+
+.story-label {
+  font-family: var(--font-body, sans-serif);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(212, 172, 112, 0.7);
+  margin-bottom: 12px;
+}
+
+.story-headline {
+  font-family: var(--font-display, serif);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.07;
+  color: #f5f0e8;
+  letter-spacing: -0.01em;
+}
+
+.story-headline em {
+  font-style: italic;
+  background: linear-gradient(135deg, #D4AC70, #F5C842, #B8843D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scroll hint — right side vertical */
+.story-scroll-hint {
+  position: absolute;
+  right: 4vw;
+  bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+.story-scroll-hint span {
+  font-family: var(--font-body, sans-serif);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: rgba(212, 172, 112, 0.45);
+  writing-mode: vertical-rl;
+}
+.story-scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(212,172,112,0.6), transparent);
+  animation: scroll-hint-pulse 2s ease-in-out infinite;
+}
+@keyframes scroll-hint-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.15); }
+}
+
+/* Progress bar — bottom edge */
+.story-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(212, 172, 112, 0.1);
+  z-index: 20;
+}
+.story-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #B8843D, #F5C842, #D4AC70);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* Iris wipe — cream circle expands over the scene */
+.story-mask {
+  position: absolute;
+  inset: 0;
+  background: #FBF7F1;
+  clip-path: circle(0% at 50% 50%);
+  z-index: 30;
   pointer-events: none;
 }
 
