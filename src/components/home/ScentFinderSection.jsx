@@ -18,7 +18,7 @@ export default function ScentFinderSection() {
             className="relative aspect-[4/3] overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=800&q=85"
+              src="/products/raghad.jpg"
               alt="Fragrance discovery"
               className="w-full h-full object-cover"
               loading="lazy"

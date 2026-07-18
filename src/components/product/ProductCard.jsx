@@ -72,8 +72,8 @@ export default function ProductCard({ product, className = '' }) {
         )}
 
         {/* Hover overlay */}
-        <div className={`absolute inset-0 bg-brown-200/10 flex flex-col items-center justify-end pb-4 gap-2 transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-cream-100/95 text-brown-100 font-body text-xs tracking-widest uppercase pointer-events-none">
+        <div className={`absolute inset-0 bg-brown-200/10 flex flex-col items-center justify-end pb-4 gap-2 transition-opacity duration-300 pointer-events-none ${hovered ? 'opacity-100' : 'opacity-0'}`}>
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-cream-100/95 text-brown-100 font-body text-xs tracking-widest uppercase">
             <Eye size={13} /> View Fragrance
           </span>
         </div>

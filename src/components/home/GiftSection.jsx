@@ -15,7 +15,7 @@ export default function GiftSection() {
       {/* Soft background image */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <img
-          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1400&q=60"
+          src="/products/oud-al-layl-set.jpg"
           alt=""
           className="w-full h-full object-cover"
         />
@@ -73,21 +73,21 @@ export default function GiftSection() {
           >
             <div className="space-y-3">
               <div className="aspect-[3/4] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1608528577891-eb055944f2e7?w=500&q=85"
+                <img src="/products/lamsat-harir-dubai-chocolate-set.jpg"
                      alt="Gift packaging" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="aspect-square overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1548369937-47519962c11a?w=500&q=85"
+                <img src="/products/al-faris-spray-set.jpg"
                      alt="Fragrance gift" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
             <div className="space-y-3 mt-8">
               <div className="aspect-square overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&q=85"
+                <img src="/products/elyssia-scarlet.jpg"
                      alt="Premium perfume" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="aspect-[3/4] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=500&q=85"
+                <img src="/products/oud-al-layl-set.jpg"
                      alt="Luxury packaging" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>

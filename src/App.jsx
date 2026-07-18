@@ -2,6 +2,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Layout from './components/layout/Layout'
 import PageLoader from './components/ui/PageLoader'
+import SocialProofToast from './components/ui/SocialProofToast'
 
 // Pages (lazy loaded for code splitting)
 const Home = lazy(() => import('./pages/Home'))
@@ -16,6 +17,7 @@ const NotFound = lazy(() => import('./pages/NotFound'))
 export default function App() {
   return (
     <Router>
+      <SocialProofToast />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Layout />}>

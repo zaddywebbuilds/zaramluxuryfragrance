@@ -58,7 +58,7 @@ export default function Story() {
       {/* Hero */}
       <section className="pt-28 pb-20 bg-dark-gradient relative overflow-hidden">
         <div className="absolute inset-0 opacity-15">
-          <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=1400&q=70"
+          <img src="/products/zenith.jpg"
                alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-brown-200/70 to-brown-200/95" />
         </div>
@@ -108,7 +108,7 @@ export default function Story() {
               </div>
             </div>
             <div className="aspect-[4/5] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=700&q=85"
+              <img src="/products/lamsat-harir-lifestyle.jpg"
                    alt="Zaram Luxury Fragrance story"
                    className="w-full h-full object-cover" />
             </div>

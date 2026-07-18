@@ -12,7 +12,7 @@ function BottleFallback() {
     <div className="relative w-full h-full flex items-center justify-center">
       <div className="relative animate-float">
         <img
-          src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=600&q=90"
+          src="/products/midnight-edition-set.jpg"
           alt="Zaram Luxury Fragrance"
           className="w-64 h-80 md:w-80 md:h-96 object-cover shadow-luxury"
         />

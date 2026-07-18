@@ -6,7 +6,7 @@ export default function EditorialStatement() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=1400&q=80"
+          src="/products/lamsat-harir-lifestyle.jpg"
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover opacity-20"
