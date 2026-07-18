@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ShieldCheck, Truck, MessageCircle, Package } from 'lucide-react'
+import { PhotoMedallion } from '../decor/PhotoDecor'
 
 const ITEMS = [
   { icon: ShieldCheck, label: 'Authenticity Assured', desc: 'Every fragrance carefully verified' },
@@ -10,8 +11,10 @@ const ITEMS = [
 
 export default function TrustStrip() {
   return (
-    <section className="bg-cream-50 border-y border-[rgba(180,132,61,0.1)] py-8">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section className="relative bg-cream-50 border-y border-[rgba(180,132,61,0.1)] py-8 overflow-hidden">
+      <PhotoMedallion src="/products/golden-elixir.jpg" size={64} className="decor--float hidden xl:block" style={{ left: '1.5%', top: '50%', marginTop: -32 }} />
+      <PhotoMedallion src="/products/love-key.jpg" size={64} className="decor--float-slow hidden xl:block" style={{ right: '1.5%', top: '50%', marginTop: -32 }} />
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-[rgba(180,132,61,0.12)]">
           {ITEMS.map(({ icon: Icon, label, desc }, i) => (
             <motion.div

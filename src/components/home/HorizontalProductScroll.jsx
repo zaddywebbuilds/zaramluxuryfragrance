@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ShoppingBag, Heart } from 'lucide-react'
 import { useCartStore, useWishlistStore } from '../../store/useStore'
 import { formatPrice } from '../../lib/utils'
+import { PhotoMedallion } from '../decor/PhotoDecor'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -54,9 +55,11 @@ export default function HorizontalProductScroll({ products = [], title = 'Featur
   if (!products.length) return null
 
   return (
-    <section ref={sectionRef} className="overflow-hidden bg-[#0a0a0a]">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#0a0a0a]">
+      <PhotoMedallion src="/products/thriller.jpg" size={62} className="decor--float-slow hidden 2xl:block" style={{ right: '18%', top: 26, boxShadow: '0 0 0 4px rgba(212,172,112,0.15), 0 8px 22px rgba(0,0,0,0.5)' }} />
+
       {/* Header — visible above the pinned area */}
-      <div className="pt-16 pb-8 px-8 md:px-16 flex items-end justify-between">
+      <div className="relative pt-16 pb-8 px-8 md:px-16 flex items-end justify-between">
         <div>
           <p className="text-xs tracking-[0.25em] uppercase text-gold-400 mb-2 font-medium">{label}</p>
           <h2 className="text-3xl md:text-5xl font-display font-light text-cream-100">{title}</h2>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { PhotoMedallion } from '../decor/PhotoDecor'
 
 export default function EditorialStatement() {
   return (
@@ -13,6 +14,10 @@ export default function EditorialStatement() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brown-200/80 via-brown-200/60 to-brown-200/90" />
       </div>
+
+      {/* Perfume decor — real product shots */}
+      <PhotoMedallion src="/products/zenith.jpg" size={86} className="decor--float hidden xl:block" style={{ left: '5%', top: '20%', boxShadow: '0 0 0 5px rgba(212,172,112,0.2), 0 10px 28px rgba(0,0,0,0.45)' }} />
+      <PhotoMedallion src="/products/raghad.jpg" size={70} className="decor--float-slow hidden xl:block" style={{ right: '6%', bottom: '18%', boxShadow: '0 0 0 5px rgba(212,172,112,0.2), 0 10px 28px rgba(0,0,0,0.45)' }} />
 
       <div className="relative max-w-4xl mx-auto px-4 md:px-8 text-center">
         <motion.div

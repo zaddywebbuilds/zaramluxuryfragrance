@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Gift, Heart, Sparkles, Building2 } from 'lucide-react'
+import { PhotoMedallion } from '../decor/PhotoDecor'
 
 const OCCASIONS = [
   { icon: Heart, label: 'Birthday Gifts', desc: 'Make their day unforgettable.' },
@@ -20,6 +21,8 @@ export default function GiftSection() {
           className="w-full h-full object-cover"
         />
       </div>
+
+      <PhotoMedallion src="/products/her-confession.jpg" size={84} className="decor--float hidden xl:block" style={{ left: '1.5%', bottom: 60 }} />
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">

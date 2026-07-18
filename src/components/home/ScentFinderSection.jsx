@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
 import { useUIStore } from '../../store/useStore'
+import { PhotoMedallion } from '../decor/PhotoDecor'
 
 export default function ScentFinderSection() {
   const { openScentFinder } = useUIStore()
 
   return (
-    <section id="scent-finder" className="py-20 bg-blush-100/60">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section id="scent-finder" className="relative py-20 bg-blush-100/60 overflow-hidden">
+      <PhotoMedallion src="/products/midnight-edition-set.jpg" size={88} className="decor--float hidden xl:block" style={{ right: '2.5%', top: 40 }} />
+      <PhotoMedallion src="/products/oud-al-layl-set.jpg" size={68} className="decor--float-slow hidden xl:block" style={{ right: '7%', bottom: 46 }} />
+
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <motion.div

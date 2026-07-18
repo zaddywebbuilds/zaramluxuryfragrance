@@ -2,11 +2,16 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { MOOD_CATEGORIES } from '../../data/products'
+import { PhotoMedallion, PhotoCard } from '../decor/PhotoDecor'
 
 export default function MoodCategories() {
   return (
-    <section className="py-20 bg-cream-100">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section className="relative py-20 bg-cream-100 overflow-hidden">
+      {/* Perfume decor — real product shots */}
+      <PhotoCard src="/products/elyssia-scarlet.jpg" width={110} tilt={-7} className="decor--float hidden xl:block" style={{ left: '2.5%', top: 48 }} />
+      <PhotoMedallion src="/products/zenith.jpg" size={90} className="decor--float-slow hidden xl:block" style={{ right: '4%', top: 44 }} />
+
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <p className="section-label">Shop by Mood</p>
           <h2 className="section-title">

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Star, ChevronLeft, ChevronRight, BadgeCheck } from 'lucide-react'
 import { DEMO_TESTIMONIALS } from '../../data/products'
 import { useFadeUp } from '../../hooks/useScrollAnimation'
+import { PhotoCameo, PhotoMedallion } from '../decor/PhotoDecor'
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0)
@@ -15,8 +16,11 @@ export default function Testimonials() {
   const next = () => setCurrent((c) => (c + 1) % reviews.length)
 
   return (
-    <section className="py-20 bg-cream-200/50">
-      <div className="max-w-4xl mx-auto px-4 md:px-8">
+    <section className="relative py-20 bg-cream-200/50 overflow-hidden">
+      <PhotoCameo src="/products/lamsat-harir-lifestyle.jpg" size={260} fade="#F7F0E5" className="hidden xl:block" style={{ left: '-1%', bottom: -20, opacity: 0.75 }} />
+      <PhotoMedallion src="/products/elyssia-scarlet.jpg" size={80} className="decor--float hidden xl:block" style={{ right: '5%', top: 70 }} />
+
+      <div className="relative max-w-4xl mx-auto px-4 md:px-8">
         <div ref={headRef} className="text-center mb-12">
           <p className="section-label">Customer Stories</p>
           <h2 className="section-title">Worn and Remembered</h2>
