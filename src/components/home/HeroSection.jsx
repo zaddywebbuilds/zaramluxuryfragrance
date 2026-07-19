@@ -65,7 +65,9 @@ function OrbitRing() {
 
       {/* Video lives OUTSIDE the rotating scene — never moves */}
       <div className="orbit-center">
-        <video autoPlay muted loop playsInline preload="none" className="orbit-video">
+        <video autoPlay muted loop playsInline preload="none"
+               poster={asset('/products/oud-al-layl-set.jpg')}
+               className="orbit-video">
           <source src={asset('/hero-video.mp4')} type="video/mp4" />
         </video>
         <div className="orbit-center-overlay" />
