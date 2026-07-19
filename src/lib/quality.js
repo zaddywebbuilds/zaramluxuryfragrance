@@ -24,7 +24,8 @@ export function getQualityTier() {
   if (mem <= 2 || cores <= 2) return 'low'
 
   const coarse = window.matchMedia('(pointer: coarse)').matches
-  if (coarse || mem <= 4) return 'medium'
+  if (coarse) return 'low'
+  if (mem <= 4) return 'medium'
 
   return 'high'
 }

@@ -200,6 +200,8 @@
   position: absolute;
   inset: 0;
   animation: orbit-spin 24s linear infinite;
+  will-change: transform;
+  contain: layout style;
 }
 
 /* responsive handled on wrapper only */
